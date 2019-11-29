@@ -6,7 +6,7 @@ import time
 from gtts import gTTS
 from playsound import playsound
 
-def escrever_text(browser):
+def escrever_email(browser):
 
     #Mudar IFrame
     browser.switch_to_frame("composebody_ifr")
@@ -24,16 +24,16 @@ url = "http://webmail.omnicontract.kinghost.net"
 browser = webdriver.Firefox()
 browser.get(url)
 
-#set email
+#Setar email no input
 browser.find_element_by_id('login_username').send_keys("joao.victor")
 
-#set pass
+#Setar password no input
 browser.find_element_by_id('secretkey').send_keys("victor.joao")
 
 lista_emails = open("emails_consutec.csv")
 
-for ctt in lista_emails:
-    print(ctt)
+#for ctt in lista_emails:
+#    print(ctt)
 
 #botão next
 browser.find_element_by_id('submit').click()
@@ -56,7 +56,7 @@ browser.find_element_by_id('_to').send_keys('joao.dvlp@gmail.com')
 #Assunto
 browser.find_element_by_id('compose-subject').send_keys('Assunto A')
 
-escrever_text(browser)
+escrever_email(browser)
 
 time.sleep(2)
 
