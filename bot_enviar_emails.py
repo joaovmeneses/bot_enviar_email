@@ -32,11 +32,12 @@ browser.find_element_by_id('secretkey').send_keys("victor.joao")
 
 lista_emails = open("emails_consutec.csv")
 
+#botão next
+browser.find_element_by_id('submit').click()
+
 #for ctt in lista_emails:
 #    print(ctt)
 
-#botão next
-browser.find_element_by_id('submit').click()
 
 time.sleep(5)
 
@@ -50,10 +51,10 @@ time.sleep(3)
 html = browser.page_source
 soup = BeautifulSoup(html, 'html.parser')
 
-#Remetentes
+#Inserir nos Remetentes
 browser.find_element_by_id('_to').send_keys('joao.dvlp@gmail.com')
 
-#Assunto
+#Inserir no Assunto
 browser.find_element_by_id('compose-subject').send_keys('Assunto A')
 
 escrever_email(browser)
